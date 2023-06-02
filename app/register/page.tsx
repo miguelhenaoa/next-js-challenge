@@ -8,7 +8,7 @@ import { deadlines } from '../../utils/constants/deadlines';
 
 export default function RegisterPage() {
   return (
-    <form>
+    <form className='py-4 sm:px-12 md:px-1 lg:px-60'>
       <div className="border-b border-gray-900/10 pb-12">
         <h2 className="text-base font-semibold leading-7 text-gray-900">Información Personal</h2>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-rows md:grid-cols-6">
@@ -186,7 +186,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <div className="md:col-span-1">
+          <div className="sm:col-span-2">
             <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
               ZIP / Código postal
             </label>

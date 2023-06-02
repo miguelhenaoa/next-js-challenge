@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  background-color: #FEF6E1;
-}
 
 /* TEXTS */
 
@@ -83,13 +80,13 @@ p, span, a, button, input, label, li, td, th, textarea {
 /* HEADER */ 
 
 header {
-  margin: 0 10%;
-  padding: 20px 0;
+  padding: 20px 10%;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #E5E5E5;
+  border-spacing: 1rem 1rem;
+  background-color: #FEF6E1;
 }
 
 .navigation {
@@ -102,13 +99,6 @@ header {
   scale: 1.1;
   transition: 0.5s;
   text-decoration: underline;
-}
-
-/* CONTENT */
-
-.content {
-  margin: 0 10%;
-  padding: 20px 0;
 }
 
 @media screen and (max-width: 768px) {

@@ -29,7 +29,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </head>
       <body className={inter.className}>
-        <header>
+        <header className='border-b border-gray-900/10'>
           <h4>OpenWord</h4>
           <nav>
             <ul className='navigation'>

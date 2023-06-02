@@ -1,0 +1,71 @@
+h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 7.2rem;
+}
+
+h2 {
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 4.5rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 3.6rem;
+}
+
+h4 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+.text-subtitle-sm-bold {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+}
+
+p, span, a, button, input, label, li, td, th, textarea {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.2rem;
+}
+
+.text-normal-bold {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2rem;
+}
+
+.text-buttons {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+}
+
+.text-caption {
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.66rem;
+}
+
+.text-overline {
+  font-size: 1.4375rem;
+  font-weight: normal;
+  line-height: 1.725rem;
+}

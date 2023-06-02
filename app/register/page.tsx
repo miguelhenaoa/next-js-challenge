@@ -1,5 +1,9 @@
-import { cities } from '../../utils/cities'
+import { callSigns } from '../../utils/constants/callsign';
+import { cities } from '../../utils/constants/cities'
 import { PhotoIcon } from '@heroicons/react/24/solid'
+import { documentTypes } from '../../utils/constants/document-type';
+import { currencyTypes } from '../../utils/constants/currency-type';
+import { deadlines } from '../../utils/constants/deadlines';
 
 
 export default function RegisterPage() {
@@ -19,10 +23,9 @@ export default function RegisterPage() {
                 autoComplete="document-type"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
-                <option value="CC">Cédula de ciudadanía</option>
-                <option value="CE">Cédula de extranjería</option>
-                <option value="PA">Pasaporte</option>
-                <option value="TI">Tarjeta de identidad</option>
+                {documentTypes.map((documentType) => (
+                  <option key={documentType.value} value={documentType.value}>{documentType.name}</option>
+                ))}
               </select>
             </div>
           </div>
@@ -32,7 +35,7 @@ export default function RegisterPage() {
             </label>
             <div className="mt-2">
               <input
-                type="text"
+                type="number"
                 name="dni"
                 id="dni"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -52,7 +55,7 @@ export default function RegisterPage() {
               />
             </div>
           </div>
-           <div className="md:col-span-3">
+          <div className="md:col-span-3">
             <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
               Primer nombre
             </label>
@@ -131,10 +134,9 @@ export default function RegisterPage() {
                 id="call-sign"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
-                <option value="57">+57</option>
-                <option value="58">+58</option>
-                <option value="593">+593</option>
-                <option value="51">+51</option>
+                {callSigns.map((callSign) => (
+                  <option key={callSign.code} value={callSign.code}>({callSign.code}) {callSign.name}</option>
+                ))}
               </select>
             </div>
           </div>
@@ -172,12 +174,15 @@ export default function RegisterPage() {
               Ciudad
             </label>
             <div className="mt-2">
-              <input
-                type="text"
+              <select
                 name="city"
                 id="city"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+              >
+                {cities.map((city) => (
+                  <option key={city} value={city}>{city}</option>
+                ))}
+              </select>
             </div>
           </div>
 
@@ -187,7 +192,7 @@ export default function RegisterPage() {
             </label>
             <div className="mt-2">
               <input
-                type="text"
+                type="number"
                 name="postal-code"
                 id="postal-code"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -207,7 +212,7 @@ export default function RegisterPage() {
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
-          </div> 
+          </div>
         </div>
       </div>
       <div className="border-b border-gray-900/10 pb-12">
@@ -224,9 +229,9 @@ export default function RegisterPage() {
                 autoComplete="currency-type"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
-                <option value="COP">COP</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
+                {currencyTypes.map((currencyType) => (
+                  <option key={currencyType.value} value={currencyType.value}>{currencyType.name}</option>
+                ))}
               </select>
             </div>
           </div>
@@ -255,10 +260,9 @@ export default function RegisterPage() {
                 autoComplete="deadline"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
-                <option value="1">1 mes</option>
-                <option value="2">2 meses</option>
-                <option value="3">3 meses</option>
-                <option value="4">4 meses</option>
+                {deadlines.map((deadline) => (
+                  <option key={deadline.value} value={deadline.value}>{deadline.name}</option>
+                ))}
               </select>
             </div>
           </div>
@@ -373,7 +377,7 @@ export default function RegisterPage() {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </form>
   );
 }

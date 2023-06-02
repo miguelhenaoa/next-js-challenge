@@ -83,7 +83,7 @@ p, span, a, button, input, label, li, td, th, textarea {
 /* HEADER */ 
 
 header {
-  margin: 0 120px;
+  margin: 0 10%;
   padding: 20px 0;
   display: flex;
   flex-flow: row nowrap;
@@ -107,6 +107,16 @@ header {
 /* CONTENT */
 
 .content {
-  margin: 0 120px;
+  margin: 0 10%;
   padding: 20px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+
+  .content {
+    margin: 0 5%;
+  }
 }

@@ -4,7 +4,12 @@
   gap: 20px;
   align-items: center;
   background-color: #FEF6E1;
-  padding: 0 10%;
+  padding: 1rem 10%;
+}
+
+.steps {
+  padding: 5% 10%;
+  background-color: #FAFAFC;
 }
 
 .item {

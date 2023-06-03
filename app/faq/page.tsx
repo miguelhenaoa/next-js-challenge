@@ -1,9 +1,12 @@
+import Image from "next/image";
+
 export default function FaqPage() {
   return (
     <section className='px-10 py-20 grid grid-cols-1 gap-x-10 lg:grid-cols-5 lg:px-40'>
       <div className='col-span-2 flex flex-col gap-y-5 pb-10' >
         <h2 className='text-2xl font-medium '>Preguntas frecuentes</h2>
         <p className='font-light'>¿No encuentra la respuesta que busca? Póngase en contacto con nuestro equipo de atención al cliente.</p>
+        <Image src={'/images/faq.svg'} width={600} height={600} alt='FAQ' />
       </div>
       <div className='col-span-3'>
         <dl className='grid gap-y-8'>

@@ -50,9 +50,9 @@ export default function RootLayout({
         <footer className='grid grid-cols-1 text-center bg-gray-300 p-10 gap-y-10'>
           <div className='flex flex-col gap-x-5 gap-y-5  justify-center sm:flex-row'>
             <Link href={'/about'}>¿Quiénes somos?</Link>
-            <Link href={'/about'}>Preguntas frecuentes</Link>
-            <Link href={'/about'}>Estados financieros</Link>
-            <Link href={'/about'}>Factura electrónica</Link>
+            <Link href={'/faq'}>Preguntas frecuentes</Link>
+            <Link href={'/'}>Estados financieros</Link>
+            <Link href={'/'}>Factura electrónica</Link>
           </div>
           <div className='flex flex-row gap-x-5 justify-center'>
             <Link href={'https://www.facebook.com'}>

@@ -63,7 +63,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="bg-[#fafafc] py-20 grid justify-center gap-y-10">
+      <section className="bg-[#fafafc] px-10 py-20 grid justify-center gap-y-10 lg:px-5">
         <h3 className="text-center text-2xl sm:text-3xl md:text-4xl">Usa cualquiera de nuestros aliados</h3>
         <div className="w-100 grid grid-cols-1 gap-6">
           <Card
@@ -117,7 +117,9 @@ export default function Home() {
             </article>
           </section>
         </section>
-        <h6 className='font-normal'>¿Quieres conocer más sobre nosotros?, visita este <Link className='text-blue-600' href={'/about'}>enlace</Link></h6>
+        <h6 className='font-normal'>
+          ¿Quieres conocer más sobre nosotros?, visita este <Link className='text-blue-600' href={'/about'}>enlace</Link>
+        </h6>
       </section>
     </section>
   );

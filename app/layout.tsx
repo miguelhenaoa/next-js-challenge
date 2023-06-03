@@ -11,9 +11,9 @@ export const metadata = {
 };
 
 const links = [
-  { label: 'Home', route: '/' },
-  { label: 'About', route: '/about' },
-  { label: 'Contact', route: '/contact' },
+  { label: 'Inicio', route: '/' },
+  { label: 'Sobre nosotros', route: '/about' },
+  { label: 'Contacto', route: '/contact' },
 ];
 
 export default function RootLayout({
@@ -31,7 +31,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <header className='border-b border-gray-900/10'>
-          <h4>OpenWord</h4>
+          <Link href={'/'}>
+            <h4>OpenWord</h4>
+          </Link>
           <nav>
             <ul className='navigation'>
               {links.map(({ label, route }) => (

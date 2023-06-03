@@ -45,18 +45,21 @@ export default function Home() {
             title="Inscripción"
             description="Llena nuestro formulario"
             color="#e8e7fe"
+            image='/images/fill-out.svg'
           />
           <Card
             className="md:col-span-1"
             title="Revisión"
             description="Tu solicitud será revisada por uno de nuestros asesores"
             color="#e8e7fe"
+            image='/images/review.svg'
           />
           <Card
             className="md:col-span-1"
             title="Respuesta"
             description="Recibirás una respuesta en menos de 24 horas"
             color="#e8e7fe"
+            image='/images/approve.svg'
           />
         </div>
       </section>
@@ -68,6 +71,7 @@ export default function Home() {
             title="[Nombre de pasarela de pago]"
             description="[Información de pasarela de pago]"
             color="#e8e7fe"
+            image='/images/fill-out.svg'
           />
         </div>
       </section>

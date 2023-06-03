@@ -3,10 +3,11 @@ import Image from 'next/image';
 export default function AboutPage() {
   return (
     <section className='grid p-10 text-center gap-y-10'>
-      <section className='grid grid-cols-1 md:grid-cols-2 '>
+      <h2 className='text-3xl font-medium'>Conócenos, <span className='text-blue-600'>¡Somos OpenWord!</span></h2>
+      <section className='grid grid-cols-1 p-5 md:grid-cols-2 '>
         <section className='col-span-1 gap-y-5 flex flex-col justify-center'>
           <h5>¿Quiénes somos?</h5>
-          <article>
+          <article className="font-light">
             <p>
               Somos una empresa dedicada a beneficiar a los potenciales clientes que
               necesitan soluciones crediticias, confiando y dándoles oportunidades
@@ -22,7 +23,7 @@ export default function AboutPage() {
           height={600}
         />
       </section>
-      <section className='grid grid-cols-1 md:grid-cols-2 '>
+      <section className='grid grid-cols-1 bg-[#fef6e1] p-5 md:grid-cols-2'>
         <Image
           className='col-span-1 hidden sm:block'
           src="/images/our-business.svg"
@@ -32,7 +33,7 @@ export default function AboutPage() {
         />
         <section className='col-span-1 gap-y-5 flex flex-col justify-center'>
           <h5>¿A qué nos dedicamos?</h5>
-          <article>
+          <article className="font-light">
             <p>
               Otorgamos préstamos personales para solucionar las necesidades del cliente
               y prestamos empresariales ya sea a pequeñas y medianas empresas para su
@@ -43,10 +44,10 @@ export default function AboutPage() {
           </article>
         </section>
       </section>
-      <section className='grid grid-cols-1 md:grid-cols-2 '>
+      <section className='grid grid-cols-1 p-5 md:grid-cols-2 '>
         <section className='col-span-1 gap-y-5 flex flex-col justify-center'>
           <h5>Objetivo</h5>
-          <article>
+          <article className="font-light">
             <p>
               Brindar la menor tasa del mercado, dar un servicio 100% digital, el monto
               otorgado se deposita directo en tu cuenta, rápidamente. Que el cliente
@@ -62,7 +63,7 @@ export default function AboutPage() {
           height={600}
         />
       </section>
-      <section className='grid grid-cols-1 md:grid-cols-2 '>
+      <section className='grid grid-cols-1 bg-[#fef6e1] p-5 md:grid-cols-2 '>
         <Image
           className='col-span-1 hidden sm:block'
           src="/images/mision.svg"
@@ -72,7 +73,7 @@ export default function AboutPage() {
         />
         <section className='col-span-1 gap-y-5 flex flex-col justify-center'>
           <h5>Misión</h5>
-          <article>
+          <article className="font-light">
             <p>
               Generar oportunidad de inclusión financiera a toda la población de manera
               rápida y responsable. Ofrecer soluciones financieras respaldadas con
@@ -81,10 +82,10 @@ export default function AboutPage() {
           </article>
         </section>
       </section>
-      <section className='grid grid-cols-1 md:grid-cols-2 '>
+      <section className='grid grid-cols-1 p-5 md:grid-cols-2'>
         <section className='col-span-1 gap-y-5 flex flex-col justify-center'>
           <h5>Visión</h5>
-          <article>
+          <article className="font-light">
             <p>
               Queremos que tengas una increíble experiencia 100% digital, fácil de usar
               y simple de entender. La visión como empresa suministradora de créditos,
@@ -100,7 +101,7 @@ export default function AboutPage() {
           height={600}
         />
       </section>
-      <section className='grid grid-cols-1 md:grid-cols-2'>
+      <section className='grid grid-cols-1 bg-[#fef6e1] p-5 md:grid-cols-2'>
         <Image
           className='col-span-1 hidden sm:block'
           src="/images/ethics.svg"
@@ -110,7 +111,7 @@ export default function AboutPage() {
         />
         <section className='col-span-1 gap-y-5 flex flex-col justify-center'>
           <h5>Valores institucionales</h5>
-          <article>
+          <article className="font-light">
             <p>
               Somos una financiera que ofrece productos financieros innovadores y
               personalizados que atienden la realidad de nuestros clientes para

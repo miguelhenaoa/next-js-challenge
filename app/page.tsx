@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <section className="">
       <section className="px-5 bg-[#fef6e1] grid grid-cols-1 py-10 lg:grid-cols-2 sm:px-10 lg:px-64">
-        <div className="col-span-1 grid">
+        <div className="col-span-1 grid gap-y-5">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl">{text}  </h2>
             <h2 className="text-blue-600 text-3xl md:text-4xl lg:text-5xl">¡Somos OpenWord!</h2>
@@ -36,7 +36,7 @@ export default function Home() {
           height={600}
         />
       </section>
-      <section className="py-20 grid justify-center gap-y-10">
+      <section className="bg-[#fafafc] py-20 grid justify-center gap-y-10">
         <h3 className="text-center text-2xl sm:text-3xl md:text-4xl">Solicita fácilmente un crédito con nosotros</h3>
         <div className="w-100 grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-5">
           <Card 

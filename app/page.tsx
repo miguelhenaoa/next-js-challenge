@@ -36,9 +36,9 @@ export default function Home() {
           height={600}
         />
       </section>
-      <section className="bg-[#fafafc] py-20 grid justify-center gap-y-10">
+      <section className="bg-[#fafafc] py-20 px-10 grid justify-center gap-y-10 lg:px-5">
         <h3 className="text-center text-2xl sm:text-3xl md:text-4xl">Solicita fácilmente un crédito con nosotros</h3>
-        <div className="w-100 grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-5">
+        <div className="w-100 grid grid-cols-1 gap-6 lg:grid-cols-5">
           <Card 
             className="lg:col-start-2" 
             title="Inscripción" 
@@ -55,6 +55,17 @@ export default function Home() {
             className="md:col-span-1" 
             title="Respuesta" 
             description="Recibirás una respuesta en menos de 24 horas"
+            color="#e8e7fe"
+          />
+        </div>
+      </section>
+      <section className="bg-[#fafafc] py-20 grid justify-center gap-y-10">
+        <h3 className="text-center text-2xl sm:text-3xl md:text-4xl">Usa cualquiera de nuestros aliados</h3>
+        <div className="w-100 grid grid-cols-1 gap-6">
+          <Card 
+            className="" 
+            title="[Nombre de pasarela de pago]" 
+            description="[Información de pasarela de pago]"
             color="#e8e7fe"
           />
         </div>

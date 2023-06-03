@@ -13,7 +13,7 @@ export const metadata = {
 const links = [
   { label: 'Inicio', route: '/' },
   { label: 'Sobre nosotros', route: '/about' },
-  { label: 'Contacto', route: '/contact' },
+  // { label: 'Contacto', route: '/contact' },
 ];
 
 export default function RootLayout({
@@ -55,6 +55,10 @@ export default function RootLayout({
             <Link href={'/faq'}>Preguntas frecuentes</Link>
             <Link href={'/'}>Estados financieros</Link>
             <Link href={'/'}>Factura electrónica</Link>
+          </div>
+          <div>
+            <p>Dir. Bosque 2a Apartamento 302 Bloques del B 9, Ciudad de Maldonado, Uruguay</p>
+            <p>Tel. 097111253</p>
           </div>
           <div className='flex flex-row gap-x-5 justify-center'>
             <Link href={'https://www.facebook.com'}>

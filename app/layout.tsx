@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import { Lexend } from 'next/font/google';
+import { BsFacebook, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import '../styles/globals.css'
-import { Lexend } from 'next/font/google'
 
 const inter = Lexend({ subsets: ['latin'] })
 
@@ -46,6 +47,26 @@ export default function RootLayout({
         <section className='content'>
           {children}
         </section>
+        <footer className='grid grid-cols-1 text-center bg-gray-300 p-10 gap-y-10'>
+          <div className='flex flex-col gap-x-5 gap-y-5  justify-center sm:flex-row'>
+            <Link href={'/about'}>¿Quiénes somos?</Link>
+            <Link href={'/about'}>Preguntas frecuentes</Link>
+            <Link href={'/about'}>Estados financieros</Link>
+            <Link href={'/about'}>Factura electrónica</Link>
+          </div>
+          <div className='flex flex-row gap-x-5 justify-center'>
+            <Link href={'https://www.facebook.com'}>
+              <BsFacebook size={30} />
+            </Link>
+            <Link href={'https://www.linkedin.com'}>
+              <BsLinkedin size={30} target='_blank' />
+            </Link>
+            <Link href={'https://www.twitter.com'}>
+              <BsTwitter size={30} />
+            </Link>
+          </div>
+          <p>© 2023 OpenWord. Todos los derechos reservados.</p>
+        </footer>
       </body>
     </html>
   )

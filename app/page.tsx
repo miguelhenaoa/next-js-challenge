@@ -118,7 +118,7 @@ export default function Home() {
           </section>
         </section>
         <h6 className='font-normal'>
-          ¿Quieres conocer más sobre nosotros?, visita este <Link className='text-blue-600' href={'/about'}>enlace</Link>
+          ¿Quieres saber más sobre nosotros?, visita este <Link className='text-blue-600' href={'/about'}>enlace</Link>
         </h6>
       </section>
     </section>

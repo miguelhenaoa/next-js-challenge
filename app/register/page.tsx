@@ -1,21 +1,24 @@
 "use client";
-import { callSigns } from '../../utils/constants/callsign';
 import { PhotoIcon } from '@heroicons/react/24/solid'
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 import { cities } from '../../utils/constants/cities'
+import { callSigns } from '../../utils/constants/callsign';
 import { currencyTypes } from '../../utils/constants/currency-type';
 import { deadlines } from '../../utils/constants/deadlines';
 import { documentTypes } from '../../utils/constants/document-type';
 import { ClientMapper, ClientRequestPayload, ClientResponsePayload } from "../../utils/interfaces/client";
+import { postClient } from '../../services/ClientService';
+import { STATUS_CODE } from '../../utils/constants/status-codes';
+import { messages } from '../../utils/constants/messages';
 
 
 export default function RegisterPage() {
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
   const router = useRouter();
-
-  const formData = watch();
+  const data = watch();
 
   useEffect(() => {
     setValue('typeDocument', '1');
@@ -26,19 +29,30 @@ export default function RegisterPage() {
     setValue('deadline', '1');
   }, [setValue]);
 
-
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
+    const { currencyType, amount, deadline, ...client } = data;
     const payload: ClientRequestPayload = ClientMapper.toRequest({
-      ...formData as ClientResponsePayload,
+      ...client as ClientResponsePayload,
       createdAt: new Date(),
       updatedAt: new Date()
     });
-    console.log(payload);
+
+    postClient(payload).then((response) => {
+      if (response.status === STATUS_CODE.CREATED) {
+        toast.success(messages[response.status]);
+        router.push('/');
+      } else {
+        toast.error(messages[response.status]);
+      }
+    }, (error) => {
+      toast.error(messages[error.status]);
+    });
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='py-4 px-5 md:px-10 lg:px-60'>
-      <div className="border-b border-gray-900/10 pb-12">
+      <h1 className='text-2xl md:text-3xl pb-3'>Formulario de registro</h1>
+      <div className="border-t border-b border-gray-900/10 pb-12 pt-6">
         <h2 className="text-base font-semibold leading-7 text-gray-900">Información Personal</h2>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-rows md:grid-cols-6">
           <div className="md:col-span-2">

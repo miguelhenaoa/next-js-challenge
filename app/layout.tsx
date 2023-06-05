@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Lexend } from 'next/font/google';
 import { BsFacebook, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import '../styles/globals.css'
+import { Toaster } from 'react-hot-toast';
 
 const inter = Lexend({ subsets: ['latin'] })
 
@@ -47,10 +48,11 @@ export default function RootLayout({
           </nav>
         </header>
         <section className='content'>
+          <Toaster />
           {children}
         </section>
-        <footer className='grid grid-cols-1 text-center bg-gray-300 p-10 gap-y-10'>
-          <div className='flex flex-col gap-x-5 gap-y-5  justify-center sm:flex-row'>
+        <footer className='grid grid-cols-1 text-center bg-gray-300 p-5 gap-y-5'>
+          <div className='flex flex-col gap-x-5 gap-y-2 justify-center sm:flex-row'>
             <Link href={'/about'}>¿Quiénes somos?</Link>
             <Link href={'/faq'}>Preguntas frecuentes</Link>
             <Link href={'/'}>Estados financieros</Link>

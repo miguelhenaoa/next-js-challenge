@@ -44,21 +44,18 @@ export default function Home() {
             className="lg:col-start-2"
             title="Inscripción"
             description="Llena nuestro formulario"
-            color="#e8e7fe"
             image='/images/fill-out.svg'
           />
           <Card
             className="md:col-span-1"
             title="Revisión"
             description="Tu solicitud será revisada por uno de nuestros asesores"
-            color="#e8e7fe"
             image='/images/review.svg'
           />
           <Card
             className="md:col-span-1"
             title="Respuesta"
             description="Recibirás una respuesta en menos de 24 horas"
-            color="#e8e7fe"
             image='/images/approve.svg'
           />
         </div>
@@ -66,13 +63,7 @@ export default function Home() {
       <section className="bg-[#fafafc] px-10 py-20 grid justify-center gap-y-10 lg:px-5">
         <h3 className="text-center text-2xl sm:text-3xl md:text-4xl">Usa cualquiera de nuestros aliados</h3>
         <div className="w-100 grid grid-cols-1 gap-6">
-          <Card
-            className=""
-            title="[Nombre de pasarela de pago]"
-            description="[Información de pasarela de pago]"
-            color="#e8e7fe"
-            image='/images/fill-out.svg'
-          />
+          <Card image='/images/abitab-logo.png' link='https://www.abitab.com.uy/' />
         </div>
       </section>
       <section className='grid p-10 text-center gap-y-10'>

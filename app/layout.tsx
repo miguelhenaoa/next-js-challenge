@@ -30,7 +30,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen`}>
         <header className='border-b border-gray-900/10'>
           <Link href={'/'}>
             <h4>OpenWord</h4>
@@ -51,7 +51,7 @@ export default function RootLayout({
           <Toaster />
           {children}
         </section>
-        <footer className='grid grid-cols-1 text-center bg-gray-300 p-5 gap-y-5'>
+        <footer className='w-100 grid grid-cols-1 text-center bg-gray-300 p-5 gap-y-5 sticky top-[100vh]'>
           <div className='flex flex-col gap-x-5 gap-y-2 justify-center sm:flex-row'>
             <Link href={'/about'}>¿Quiénes somos?</Link>
             <Link href={'/faq'}>Preguntas frecuentes</Link>

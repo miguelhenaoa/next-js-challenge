@@ -1,7 +1,7 @@
 import api from '../config/api';
 import { ClientRequestPayload } from '../utils/interfaces/client';
 
-export const postClient = (payload: ClientRequestPayload): Promise<any> => {
+export const create = (payload: ClientRequestPayload): Promise<any> => {
   const formData = build(payload);
   return api.post('/open/cliente/', formData);
 };

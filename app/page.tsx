@@ -30,7 +30,8 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <Image className="col-span-1"
+        <Image
+          className="col-span-1"
           src="/images/coins.svg"
           alt="landing"
           width={600}

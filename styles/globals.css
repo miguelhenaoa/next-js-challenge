@@ -100,3 +100,7 @@ header {
     display: none;
   }
 }
+
+body {
+  background: url(/images/background.svg) repeat center center fixed;
+}

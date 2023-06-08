@@ -124,6 +124,14 @@ export default function AboutPage() {
           </article>
         </section>
       </section>
+      <section className='bg-gray-400 mx-auto my-0 rounded-md shadow-xl'>
+        <Image
+          src='/images/logo.png'
+          alt='OpenWod Logo'
+          width={300}
+          height={400}
+        />
+      </section>
     </section>
   );
 }

@@ -1,8 +1,9 @@
-import Link from 'next/link';
 import { Lexend } from 'next/font/google';
-import { BsFacebook, BsLinkedin, BsTwitter } from 'react-icons/bs';
-import '../styles/globals.css'
+import Link from 'next/link';
+import Image from 'next/image';
 import { Toaster } from 'react-hot-toast';
+import { BsFacebook, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import '../styles/globals.css';
 
 const inter = Lexend({ subsets: ['latin'] })
 
@@ -33,7 +34,7 @@ export default function RootLayout({
       <body className={`${inter.className} min-h-screen`}>
         <header className='border-b border-gray-900/10'>
           <Link href={'/'}>
-            <h4>OpenWord</h4>
+            <h4 className='text-[#e7ae0a]'>OpenWord</h4>
           </Link>
           <nav>
             <ul className='navigation'>

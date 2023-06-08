@@ -7,10 +7,9 @@ import { cities } from '../../utils/constants/cities';
 interface PersonalInfoProps {
   formData: any;
   nextFormStep: (data: any) => void;
-  animationClasses?: string;
 }
 
-export default function PersonalInfo({ nextFormStep, formData, animationClasses }: PersonalInfoProps) {
+export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoProps) {
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
   const data = watch();
 
@@ -27,7 +26,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={`${animationClasses} shadow-lg p-10 rounded`}>
+      <div className='shadow-lg p-10 rounded'>
         <h2 className="text-base font-semibold leading-7 text-gray-900">Información Personal</h2>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-rows md:grid-cols-6">
           <div className="md:col-span-2">
@@ -36,7 +35,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <select
-                {...register("typeDocument", { required: false })}
+                {...register("typeDocument", { required: true })}
                 id="document-type"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
@@ -53,7 +52,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("dni", { required: false })}
+                {...register("dni", { required: true })}
                 type="number"
                 id="dni"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -81,7 +80,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("firstName", { required: false })}
+                {...register("firstName", { required: true })}
                 type="text"
                 id="first-name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -95,7 +94,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("secondName", { required: false })}
+                {...register("secondName", { required: true })}
                 type="text"
                 id="second-name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -110,7 +109,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("firstLastName", { required: false })}
+                {...register("firstLastName", { required: true })}
                 type="text"
                 id="first-last-name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -125,7 +124,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("secondLastName", { required: false })}
+                {...register("secondLastName", { required: true })}
                 type="text"
                 id="second-last-name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -140,7 +139,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("email", { required: false })}
+                {...register("email", { required: true })}
                 id="email"
                 type="email"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -155,7 +154,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <select
-                {...register("callSign", { required: false })}
+                {...register("callSign", { required: true })}
                 id="call-sign"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
@@ -173,7 +172,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("phone", { required: false })}
+                {...register("phone", { required: true })}
                 type="tel"
                 id="phone-number"
                 className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600'
@@ -188,7 +187,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("address", { required: false })}
+                {...register("address", { required: true })}
                 type="text"
                 id="street-address"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -203,7 +202,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <select
-                {...register("city", { required: false })}
+                {...register("city", { required: true })}
                 id="city"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
               >
@@ -221,7 +220,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("zipCode", { required: false })}
+                {...register("zipCode", { required: true })}
                 type="number"
                 id="postal-code"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -236,7 +235,7 @@ export default function PersonalInfo({ nextFormStep, formData, animationClasses 
             </label>
             <div className="mt-2">
               <input
-                {...register("workAddress", { required: false })}
+                {...register("workAddress", { required: true })}
                 type="text"
                 id="job-address"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"

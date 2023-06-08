@@ -7,10 +7,9 @@ interface DocsProps {
   prevFormStep: () => void;
   sendForm: (data: any) => void;
   formData: any;
-  animationsClasses?: string;
 }
 
-export default function Docs({ sendForm, prevFormStep, formData, animationsClasses }: DocsProps) {
+export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
   const data = watch();
 
@@ -24,7 +23,7 @@ export default function Docs({ sendForm, prevFormStep, formData, animationsClass
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={`${animationsClasses} shadow-lg p-10 rounded`}>
+      <div className='shadow-lg p-10 rounded'>
         <h2 className="text-base font-semibold leading-7 text-gray-900">Soportes documentales</h2>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div className="col-span-3">

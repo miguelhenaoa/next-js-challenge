@@ -7,10 +7,9 @@ interface LoanInfoProps {
   nextFormStep: (data: any) => void;
   prevFormStep: () => void;
   formData: any;
-  animationClasses?: string;
 }
 
-export default function LoanInfo({ nextFormStep, prevFormStep, formData, animationClasses }: LoanInfoProps) {
+export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanInfoProps) {
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm(formData);
   const data = watch();
 
@@ -26,7 +25,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData, animati
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={`${animationClasses} shadow-lg p-10 rounded`}>
+      <div className='shadow-lg p-10 rounded'>
         <h2 className="text-base font-semibold leading-7 text-gray-900">Información del Préstamo</h2>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div className="sm:col-span-2">

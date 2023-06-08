@@ -73,7 +73,7 @@ export class ClientMapper {
     };
   }
 
-  static toRequest(payload: ClientResponsePayload): ClientRequestPayload {
+  static toRequest(payload: ClientResponsePayload): ClientRequestPayload {    
     return {
       type_document: payload.typeDocument,
       number_document: payload.dni,

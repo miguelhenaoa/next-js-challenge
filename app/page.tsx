@@ -1,8 +1,10 @@
 "use client"
 import { useRouter } from "next/navigation";
+import Lottie from 'lottie-react';
 import Image from "next/image";
 import Link from 'next/link';
 import Card from "../components/card";
+import moneyAnimation from "../public/animations/money.json";
 
 const text = "¡Obtén el impulso financiero que necesitas hoy mismo con nuestros préstamos rápidos y confiables!";
 const description = "Tu solución financiera a un solo clic: descubre nuestros préstamos flexibles y asequibles para alcanzar tus metas económicas.";
@@ -13,7 +15,7 @@ export default function Home() {
   return (
     <section>
       <section className="px-5 bg-[#fef6e1] grid grid-cols-1 py-10 lg:grid-cols-2 sm:px-10 lg:px-64">
-        <div className="col-span-1 grid gap-y-5">
+        <div className="col-span-1 grid gap-y-1">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl">{text}  </h2>
             <h2 className="text-blue-600 text-3xl md:text-4xl lg:text-5xl">¡Somos OpenWord!</h2>
@@ -30,13 +32,9 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <Image
-          className="col-span-1"
-          src="/images/coins.svg"
-          alt="landing"
-          width={600}
-          height={600}
-        />
+        <div className='max-w-md'>
+          <Lottie animationData={moneyAnimation} />
+        </div>
       </section>
       <section className="bg-[#fafafc] py-20 px-10 grid justify-center gap-y-10 lg:px-5">
         <h3 className="text-center text-2xl sm:text-3xl md:text-4xl">Solicita fácilmente un crédito con nosotros</h3>

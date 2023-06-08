@@ -9,12 +9,14 @@ interface DocsProps {
   formData: any;
 }
 
+const form = ['frontSideDNI', 'backSideDNI', 'salaryReceipts', 'lastSalaryReceipt', 'publicServicesReceipts']
+
 export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
   const data = watch();
 
   useEffect(() => {
-    Object.keys(formData).forEach((key) => formData[key] && setValue(key, formData[key]));
+    Object.keys(form).forEach((key) => formData[key] && setValue(key, formData[key]));
   }, [setValue, formData]);
 
   const onSubmit = () => {

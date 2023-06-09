@@ -10,10 +10,11 @@ import FormCard from '../../components/form-card';
 import checkAnimation from '../../public/animations/check.json';
 import loadingAnimation from '../../public/animations/loading.json';
 import { create } from '../../services/ClientService';
+import { application } from '../../services/CreditApplicationService';
 import { messages } from '../../utils/constants/messages';
 import { STATUS_CODE } from '../../utils/constants/status-codes';
-import { ClientMapper, ClientRequestPayload, ClientResponsePayload } from '../../utils/interfaces/client';
-
+import { ClientMapper, ClientRequestPayload } from '../../utils/interfaces/client';
+import { CreditApplicationRequestMapper } from '../../utils/interfaces/credit-application';
 
 export default function RegisterPage() {
   const [data, setData] = useState({} as any);
@@ -41,14 +42,36 @@ export default function RegisterPage() {
 
       create(payload).then((response) => {
         if (response.status === STATUS_CODE.CREATED) {
-          setLoading(false);
-          setSend(true);
-          toast.success(messages[response.status]);
-          setTimeout(() => {
-            router.push('/');
-          }, 3000);
+          const creditApplication = CreditApplicationRequestMapper.toRequest({
+            currencyType,
+            amount,
+            deadline,
+            internalApproved: 1,
+            externalApproved: false,
+            approvalDate: new Date(),
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            clientDNI: client.dni,
+          });
+          application(creditApplication).then((response) => {
+            if (response.status === STATUS_CODE.CREATED) {
+              setLoading(false);
+              setSend(true);
+              toast.success(messages[response.status]);
+              setTimeout(() => {
+                router.push('/');
+              }, 3000);
+            } else {
+              toast.error(messages[response.status]);
+              setLoading(false);
+            }
+          }, (error) => {
+            toast.error(messages[error.status]);
+            setLoading(false);
+          });
         } else {
           toast.error(messages[response.status]);
+          setLoading(false);
         }
       }, (error) => {
         toast.error(messages[error.status]);
@@ -58,7 +81,6 @@ export default function RegisterPage() {
     } catch (error: any) {
       toast.error(messages[error.status]);
       setLoading(false);
-      setSend(false);
     }
 
   };

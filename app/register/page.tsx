@@ -46,12 +46,13 @@ export default function RegisterPage() {
             currencyType,
             amount,
             deadline,
-            internalApproved: 1,
-            externalApproved: false,
+            internalApproved: 3,
+            externalApproved: 3,
             approvalDate: new Date(),
             createdAt: new Date(),
             updatedAt: new Date(),
             clientDNI: client.dni,
+            tasaInteres: 0,
           });
           application(creditApplication).then((response) => {
             if (response.status === STATUS_CODE.CREATED) {

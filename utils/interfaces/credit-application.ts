@@ -6,11 +6,12 @@ export interface CreditApplicationResponsePayload {
   amount: number;
   deadline: number;
   internalApproved: number;
-  externalApproved: boolean;
+  externalApproved: number;
   approvalDate: Date | null;
   createdAt: Date;
   updatedAt: Date;
   clientDNI: string;
+  tasaInteres: 0,
 }
 
 export interface CreditApplicationRequestPayload {
@@ -19,11 +20,12 @@ export interface CreditApplicationRequestPayload {
   valor_credito_total: number;
   plazos_cuotas: number;
   estado_aprobado_interno: number;
-  estado_externo: boolean;
+  estado_externo: number;
   fecha_aprobacion: string | null;
   created_at: string;
   updated_at: string;
   cedula_cliente: string;
+  tasa_interes: 0,
 }
 
 export class CreditApplicationRequestMapper {
@@ -41,6 +43,7 @@ export class CreditApplicationRequestMapper {
       createdAt: new Date(payload.created_at),
       updatedAt: new Date(payload.updated_at),
       clientDNI: payload.cedula_cliente,
+      tasaInteres: 0
     };
   }
 
@@ -58,6 +61,7 @@ export class CreditApplicationRequestMapper {
       created_at: payload.createdAt.toISOString(),
       updated_at: payload.updatedAt.toISOString(),
       cedula_cliente: payload.clientDNI,
+      tasa_interes: 0
     };
   }
 }

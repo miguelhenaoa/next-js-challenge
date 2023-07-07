@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { currencyTypes } from '../../utils/constants/currency-type';
 import { deadlines } from '../../utils/constants/deadlines';
+import styles from './Forms.module.css';
+
 
 interface LoanInfoProps {
   nextFormStep: (data: any) => void;
@@ -29,7 +31,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
         <h2 className="text-base font-semibold leading-7 text-gray-900">Información del Préstamo</h2>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div className="sm:col-span-2">
-            <label htmlFor="currency-type" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="currency-type" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Tipo de moneda
             </label>
             <div className="mt-2">
@@ -47,7 +49,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="amount" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="amount" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Monto
             </label>
             <div className="mt-2">
@@ -62,7 +64,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="deadline" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="deadline" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Plazos de pago
             </label>
             <div className="mt-2">

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { documentTypes } from '../../utils/constants/document-type';
 import { callSigns } from '../../utils/constants/callsign';
 import { cities } from '../../utils/constants/cities';
+import styles from './Forms.module.css';
 
 interface PersonalInfoProps {
   formData: any;
@@ -30,7 +31,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
         <h2 className="text-base font-semibold leading-7 text-gray-900">Información Personal</h2>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-rows md:grid-cols-6">
           <div className="md:col-span-2">
-            <label htmlFor="document-type" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="document-type" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Tipo de documento
             </label>
             <div className="mt-2">
@@ -47,7 +48,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             </div>
           </div>
           <div className="md:col-span-2">
-            <label htmlFor="dni" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="dni" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Número de documento
             </label>
             <div className="mt-2">
@@ -61,7 +62,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             </div>
           </div>
           <div className="md:col-span-2">
-            <label htmlFor="optional-identifier" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="optional-identifier" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Identificador opcional
             </label>
             <div className="mt-2">
@@ -75,7 +76,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             </div>
           </div>
           <div className="md:col-span-3">
-            <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="first-name" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Primer nombre
             </label>
             <div className="mt-2">
@@ -89,7 +90,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             </div>
           </div>
           <div className="md:col-span-3">
-            <label htmlFor="second-name" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="second-name" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Segundo nombre
             </label>
             <div className="mt-2">
@@ -104,7 +105,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className="md:col-span-3">
-            <label htmlFor="first-last-name" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="first-last-name" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Primer apellido
             </label>
             <div className="mt-2">
@@ -119,7 +120,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className="md:col-span-3">
-            <label htmlFor="second-last-name" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="second-last-name" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Segundo apellido
             </label>
             <div className="mt-2">
@@ -134,7 +135,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className="md:col-span-3">
-            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="email" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Correo electrónico
             </label>
             <div className="mt-2">
@@ -149,7 +150,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className='md:col-span-1'>
-            <label htmlFor="call-sign" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="call-sign" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Indicativo
             </label>
             <div className="mt-2">
@@ -167,7 +168,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className="md:col-span-2">
-            <label htmlFor="phone-number" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="phone-number" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Número de teléfono
             </label>
             <div className="mt-2">
@@ -182,7 +183,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className="md:col-span-3">
-            <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="street-address" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Dirección
             </label>
             <div className="mt-2">
@@ -197,7 +198,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className="md:col-span-2">
-            <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="city" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Ciudad
             </label>
             <div className="mt-2">
@@ -215,7 +216,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="postal-code" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               ZIP / Código postal
             </label>
             <div className="mt-2">
@@ -230,7 +231,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           </div>
 
           <div className='md:col-span-3'>
-            <label htmlFor="job-address" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="job-address" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Dirección de trabajo
             </label>
             <div className="mt-2">

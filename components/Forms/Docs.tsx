@@ -1,6 +1,7 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import styles from './Forms.module.css';
 
 interface DocsProps {
   nextFormStep: (data: any) => void;
@@ -29,7 +30,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
         <h2 className="text-base font-semibold leading-7 text-gray-900">Soportes documentales</h2>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div className="col-span-3">
-            <label htmlFor="cover-photo-1" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="cover-photo-1" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Documento de identificación - Anverso
             </label>
             <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -46,6 +47,8 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
                       id="file-upload-1"
                       type="file"
                       className="sr-only"
+                      multiple={false}
+                      accept='image/*'
                     />
                   </label>
                   <p className="pl-1">o arrastra y suelta</p>
@@ -56,7 +59,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
             {errors.frontSideDNI && <span className='text-red-500 text-xs'>Este archivo es requerido</span>}
           </div>
           <div className="col-span-3">
-            <label htmlFor="cover-photo-2" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="cover-photo-2" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Documento de identificación - Reverso
             </label>
             <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -73,6 +76,8 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
                       id="file-upload-2"
                       type="file"
                       className="sr-only"
+                      multiple={false}
+                      accept='image/*'
                     />
                   </label>
                   <p className="pl-1">o arrastra y suelta</p>
@@ -83,7 +88,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
             {errors.backSideDNI && <span className='text-red-500 text-xs'>Este archivo es requerido</span>}
           </div>
           <div className="col-span-2 md:col-span-3">
-            <label htmlFor="cover-photo-3" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="cover-photo-3" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Salario - Soporte
             </label>
             <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -100,6 +105,8 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
                       id="file-upload-3"
                       type="file"
                       className="sr-only"
+                      multiple={false}
+                      accept='image/*'
                     />
                   </label>
                   <p className="pl-1">o arrastra y suelta</p>
@@ -110,7 +117,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
             {errors.salaryReceipts && <span className='text-red-500 text-xs'>Este archivo es requerido</span>}
           </div>
           <div className="col-span-2 md:col-span-3">
-            <label htmlFor="cover-photo-4" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="cover-photo-4" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Salario - Soporte último mes
             </label>
             <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -127,6 +134,8 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
                       id="file-upload-4"
                       type="file"
                       className="sr-only"
+                      multiple={false}
+                      accept='image/*'
                     />
                   </label>
                   <p className="pl-1">o arrastra y suelta</p>
@@ -137,7 +146,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
             {errors.lastSalaryReceipt && <span className='text-red-500 text-xs'>Este archivo es requerido</span>}
           </div>
           <div className="col-span-2 sm:col-span-full">
-            <label htmlFor="cover-photo-5" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="cover-photo-5" className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
               Servicios públicos - Soporte
             </label>
             <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -155,6 +164,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
                       type="file"
                       className="sr-only"
                       multiple={false}
+                      accept='image/*'
                     />
                   </label>
                   <p className="pl-1">o arrastra y suelta</p>

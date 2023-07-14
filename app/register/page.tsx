@@ -14,7 +14,7 @@ import { application } from '../../services/CreditApplicationService';
 import { messages } from '../../utils/constants/messages';
 import { STATUS_CODE } from '../../utils/constants/status-codes';
 import { ClientMapper, ClientRequestPayload } from '../../utils/interfaces/client';
-import { CreditApplicationRequestMapper } from '../../utils/interfaces/credit-application';
+import { CreditApplicationPayload } from '../../utils/interfaces/credit-application';
 
 export default function RegisterPage() {
   const [data, setData] = useState({} as any);
@@ -32,7 +32,7 @@ export default function RegisterPage() {
     try {
       setData((currentData: any) => ({ ...currentData, ...files }));
       setLoading(true);
-      const { currencyType, amount, deadline, ...client } = data;
+      const { tipo_moneda, valor_credito_total, cuotas_credito, duracion_credito, ...client } = data;
       const payload: ClientRequestPayload = ClientMapper.toRequest({
         ...client,
         ...files,
@@ -42,18 +42,19 @@ export default function RegisterPage() {
 
       create(payload).then((response) => {
         if (response.status === STATUS_CODE.CREATED) {
-          const creditApplication = CreditApplicationRequestMapper.toRequest({
-            currencyType,
-            amount,
-            deadline,
-            internalApproved: 3,
-            externalApproved: 3,
-            approvalDate: new Date(),
-            createdAt: new Date(),
-            updatedAt: new Date(),
-            clientDNI: client.dni,
-            tasaInteres: 0,
-          });
+          const creditApplication: CreditApplicationPayload = {
+            tipo_moneda,
+            valor_credito_total,
+            tasa_interes: 0,
+            cuotas_credito,
+            duracion_credito,
+            preapobado_form_tiempos: 3,
+            estado_externo: 3,
+            fecha_aprobacion: new Date().toISOString(),
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            cedula_cliente: client.dni,
+          };
           application(creditApplication).then((response) => {
             if (response.status === STATUS_CODE.CREATED) {
               setLoading(false);

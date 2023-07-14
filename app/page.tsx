@@ -1,8 +1,8 @@
 "use client"
-import { useRouter } from "next/navigation";
 import Lottie from 'lottie-react';
 import Image from "next/image";
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 import Card from "../components/card";
 import moneyAnimation from "../public/animations/money.json";
 

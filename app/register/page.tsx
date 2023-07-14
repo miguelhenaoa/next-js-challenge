@@ -2,7 +2,7 @@
 import Lottie from 'lottie-react';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import toast from 'react-hot-toast';
 import Docs from '../../components/Forms/Docs';
 import LoanInfo from '../../components/Forms/LoanInfo';

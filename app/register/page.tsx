@@ -1,7 +1,8 @@
 'use client';
 import Lottie from 'lottie-react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import toast from 'react-hot-toast';
 import Docs from '../../components/Forms/Docs';
 import LoanInfo from '../../components/Forms/LoanInfo';
@@ -17,6 +18,7 @@ import { ClientMapper, ClientRequestPayload } from '../../utils/interfaces/clien
 import { CreditApplicationPayload } from '../../utils/interfaces/credit-application';
 
 export default function RegisterPage() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [data, setData] = useState({} as any);
   const [loading, setLoading] = useState(false);
   const [check, setSend] = useState(false);
@@ -28,64 +30,69 @@ export default function RegisterPage() {
   };
   const prevFormStep = () => setFormStep((currentStep) => currentStep - 1);
 
-  const onSubmit = (files: any) => {
-    try {
-      setData((currentData: any) => ({ ...currentData, ...files }));
-      setLoading(true);
-      const { tipo_moneda, valor_credito_total, cuotas_credito, duracion_credito, ...client } = data;
-      const payload: ClientRequestPayload = ClientMapper.toRequest({
-        ...client,
-        ...files,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      });
+  const onSubmit = useCallback((files: any) => {
+    if (!executeRecaptcha) {
+      console.log("Execute recaptcha not yet available");
+      return;
+    }
+    executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
+      try {
+        setData((currentData: any) => ({ ...currentData, ...files }));
+        setLoading(true);
+        const { tipo_moneda, valor_credito_total, cuotas_credito, duracion_credito, ...client } = data;
+        const payload: ClientRequestPayload = ClientMapper.toRequest({
+          ...client,
+          ...files,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        });
 
-      create(payload).then((response) => {
-        if (response.status === STATUS_CODE.CREATED) {
-          const creditApplication: CreditApplicationPayload = {
-            tipo_moneda,
-            valor_credito_total,
-            tasa_interes: 0,
-            cuotas_credito,
-            duracion_credito,
-            preapobado_form_tiempos: 3,
-            estado_externo: 3,
-            fecha_aprobacion: new Date().toISOString(),
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString(),
-            cedula_cliente: client.dni,
-          };
-          application(creditApplication).then((response) => {
-            if (response.status === STATUS_CODE.CREATED) {
+        create(payload).then((response) => {
+          if (response.status === STATUS_CODE.CREATED) {
+            const creditApplication: CreditApplicationPayload = {
+              tipo_moneda,
+              valor_credito_total,
+              tasa_interes: 0,
+              cuotas_credito,
+              duracion_credito,
+              preapobado_form_tiempos: 3,
+              estado_externo: 3,
+              fecha_aprobacion: new Date().toISOString(),
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+              cedula_cliente: client.dni,
+            };
+            application(creditApplication).then((response) => {
+              if (response.status === STATUS_CODE.CREATED) {
+                setLoading(false);
+                setSend(true);
+                toast.success(messages[response.status]);
+                setTimeout(() => {
+                  router.push('/');
+                }, 3000);
+              } else {
+                toast.error(messages[response.status]);
+                setLoading(false);
+              }
+            }, (error) => {
+              toast.error(messages[error.status]);
               setLoading(false);
-              setSend(true);
-              toast.success(messages[response.status]);
-              setTimeout(() => {
-                router.push('/');
-              }, 3000);
-            } else {
-              toast.error(messages[response.status]);
-              setLoading(false);
-            }
-          }, (error) => {
-            toast.error(messages[error.status]);
+            });
+          } else {
+            toast.error(messages[response.status]);
             setLoading(false);
-          });
-        } else {
-          toast.error(messages[response.status]);
+          }
+        }, (error) => {
+          toast.error(messages[error.status]);
           setLoading(false);
-        }
-      }, (error) => {
+          setSend(false);
+        });
+      } catch (error: any) {
         toast.error(messages[error.status]);
         setLoading(false);
-        setSend(false);
-      });
-    } catch (error: any) {
-      toast.error(messages[error.status]);
-      setLoading(false);
-    }
-
-  };
+      }
+    });
+  }, [executeRecaptcha, data, router]);
 
   return (
     !loading && !check ?

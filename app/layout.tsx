@@ -1,10 +1,11 @@
 'use client'
 import { Lexend } from 'next/font/google';
+import Image from 'next/image';
 import Link from 'next/link';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { Toaster } from 'react-hot-toast';
 import { BsFacebook, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import '../styles/globals.css';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 const inter = Lexend({ subsets: ['latin'] })
 
@@ -42,12 +43,18 @@ export default function RootLayout({
           <link rel="preconnect" href="https://fonts.gstatic.com" />
         </head>
         <body className={`${inter.className} min-h-screen`}>
-          <header className='border-b border-gray-900/10'>
-            <Link href={'/'}>
+          <header className='border-b border-gray-900/10 pt-0 pb-0 bg-[#1f1f1f]'>
+            <Link href={'/'} className='flex items-center'>
+              <Image
+                src='/images/logo.png'
+                alt='OpenWod Logo'
+                width={100}
+                height={100}
+              />
               <h4 className='text-[#e7ae0a]'>OpenWord</h4>
             </Link>
             <nav>
-              <ul className='navigation'>
+              <ul className='navigation text-white'>
                 {links.map(({ label, route }) => (
                   <li className='link' key={route}>
                     <Link href={route}>

@@ -67,11 +67,11 @@ export default function Home() {
       </section>
       <section className='grid p-10 text-center gap-y-10'>
         <h2 className='text-3xl font-medium'>Conócenos, <span className='text-blue-600'>¡Somos OpenWord!</span></h2>
-        <div className='bg-gray-400 mx-auto my-0 rounded-md shadow-xl'>
+        <div className='bg-[#1f1f1f] my-0 rounded-md shadow-xl flex justify-center	'>
           <Image
             src='/images/logo.png'
             alt='OpenWod Logo'
-            width={300}
+            width={400}
             height={400}
           />
         </div>

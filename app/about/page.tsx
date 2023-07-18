@@ -4,6 +4,14 @@ export default function AboutPage() {
   return (
     <section className='grid p-10 text-center gap-y-10'>
       <h2 className='text-3xl font-medium'>Conócenos, <span className='text-blue-600'>¡Somos OpenWord!</span></h2>
+      <section className='bg-[#1f1f1f] my-0 rounded-md shadow-xl flex justify-center	'>
+        <Image
+          src='/images/logo.png'
+          alt='OpenWod Logo'
+          width={400}
+          height={400}
+        />
+      </section>
       <section className='grid grid-cols-1 p-5 md:grid-cols-2 '>
         <section className='col-span-1 gap-y-5 flex flex-col justify-center'>
           <h5>¿Quiénes somos?</h5>
@@ -124,14 +132,7 @@ export default function AboutPage() {
           </article>
         </section>
       </section>
-      <section className='bg-gray-400 mx-auto my-0 rounded-md shadow-xl'>
-        <Image
-          src='/images/logo.png'
-          alt='OpenWod Logo'
-          width={300}
-          height={400}
-        />
-      </section>
+
     </section>
   );
 }

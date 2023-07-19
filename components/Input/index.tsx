@@ -7,14 +7,14 @@ interface Props {
   type: 'text' | 'email' | 'number' | 'tel';
   hasError: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
   id?: string;
-  colSpan: number;
   helperText?: string;
+  className?: string;
 }
 
-function Input({ type, label, id, hasError, colSpan, helperText, ...props }: Props, ref: Ref<HTMLInputElement>) {
+function Input({ type, label, id, hasError, helperText, className, ...props }: Props, ref: Ref<HTMLInputElement>) {
 
   return (
-    <div className={`md:col-span-${colSpan}`}>
+    <div className={className}>
       <label htmlFor={id} className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
         {label}
       </label>

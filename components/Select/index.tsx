@@ -6,16 +6,16 @@ interface Props {
   label: string;
   hasError: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
   id?: string;
-  colSpan: number;
+  className: string;
   selectLabel?: string;
   selectValue?: string;
   options: any[];
   helperText?: string;
 }
 
-function Select({ label, id, hasError, colSpan, selectLabel, selectValue, options, helperText, ...props }: Props, ref: LegacyRef<HTMLSelectElement>) {
+function Select({ label, id, hasError, className, selectLabel, selectValue, options, helperText, ...props }: Props, ref: LegacyRef<HTMLSelectElement>) {
   return (
-    <div className={`md:col-span-${colSpan}`}>
+    <div className={className}>
       <label htmlFor={id} className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
         {label}
       </label>

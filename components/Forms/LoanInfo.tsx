@@ -39,7 +39,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
             id="tipo_moneda"
             hasError={errors.tipo_moneda}
             options={currencyTypes}
-            colSpan={2}
+            className='col-span-2'
             selectLabel='name'
             selectValue='value'
             helperText='Selecciona el tipo de moneda que deseas para tu crédito'
@@ -50,7 +50,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
             type='number'
             id='valor_credito_total'
             hasError={errors.valor_credito_total}
-            colSpan={2}
+            className='col-span-2'
             helperText='Ingresa el monto que necesitas para tu crédito'
           />
           <Select
@@ -61,7 +61,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
             options={deadlines}
             selectLabel='name'
             selectValue='value'
-            colSpan={2}
+            className='col-span-2'
             helperText='Selecciona cada cuanto tiempo deseas pagar tu crédito'
           />
           <Select
@@ -72,7 +72,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
             options={creditDuration}
             selectLabel='name'
             selectValue='value'
-            colSpan={2}
+            className='col-span-2'
             helperText='Selecciona el plazo en el que deseas pagar tu crédito'
           />
         </div>

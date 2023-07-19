@@ -33,7 +33,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             label='Tipo de documento'
             id='document-type'
             hasError={errors.typeDocument}
-            colSpan={2}
+            className='md:col-span-2'
             selectLabel='name'
             selectValue='value'
             options={documentTypes}
@@ -45,7 +45,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='number'
             id='dni'
             hasError={errors.dni}
-            colSpan={2}
+            className='md:col-span-2'
             helperText='Ingrese su número de documento sin puntos ni guiones'
           />
           <Input
@@ -54,7 +54,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='text'
             id='optional-identifier'
             hasError={errors.optionalIdentifier}
-            colSpan={2}
+            className='col-span-2'
             helperText='Puede ser el número de pasaporte, carnet de extranjería, etc.'
           />
           <Input
@@ -63,7 +63,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='text'
             id='first-name'
             hasError={errors.firstName}
-            colSpan={3}
+            className='col-span-3'
           />
           <Input
             {...register("secondName", { required: true })}
@@ -71,7 +71,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='text'
             id='second-name'
             hasError={errors.secondName}
-            colSpan={3}
+            className='col-span-3'
+
           />
           <Input
             {...register("firstLastName", { required: true })}
@@ -79,7 +80,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='text'
             id='first-last-name'
             hasError={errors.firstLastName}
-            colSpan={3}
+            className='col-span-3'
+
           />
           <Input
             {...register("secondLastName", { required: true })}
@@ -87,7 +89,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='text'
             id='second-last-name'
             hasError={errors.secondLastName}
-            colSpan={3}
+            className='col-span-3'
+
           />
           <Input
             {...register("email", { required: true })}
@@ -95,7 +98,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='email'
             id='email'
             hasError={errors.email}
-            colSpan={3}
+            className='col-span-3'
+
             helperText='Ingrese un correo electrónico válido (Ejemplo: yourmail@openword.uy)'
           />
           <Select
@@ -103,7 +107,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             label='Indicativo'
             id='call-sign'
             hasError={errors.callSign}
-            colSpan={1}
+            className='col-span-1'
             selectLabel='name'
             selectValue='code'
             options={callSigns}
@@ -115,7 +119,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='tel'
             id='phone-number'
             hasError={errors.phone}
-            colSpan={2}
+            className='col-span-2'
             helperText='Ingrese un número de teléfono válido sin espacios, guiones o paréntesis'
           />
           <Input
@@ -124,7 +128,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='text'
             id='street-address'
             hasError={errors.address}
-            colSpan={3}
+            className='col-span-3'
+
             helperText='Ingrese su dirección de residencia completa'
           />
           <Select
@@ -132,7 +137,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             label='Ciudad'
             id='city'
             hasError={errors.city}
-            colSpan={2}
+            className='col-span-2'
             options={cities}
             helperText='Seleccione la ciudad donde reside'
           />
@@ -142,7 +147,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='number'
             id='postal-code'
             hasError={errors.zipCode}
-            colSpan={2}
+            className='col-span-2'
             helperText='Ingrese su código postal, si no lo conoce, puede dejar este campo en blanco'
           />
           <Input
@@ -151,7 +156,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             type='text'
             id='job-address'
             hasError={errors.workAddress}
-            colSpan={3}
+            className='col-span-3'
+
             helperText='Ingrese su dirección de trabajo completa'
           />
         </div>

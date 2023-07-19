@@ -8,9 +8,10 @@ interface Props {
   hasError: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
   id?: string;
   colSpan: number;
+  helperText?: string;
 }
 
-function Input({ type, label, id, hasError, colSpan, ...props }: Props, ref: Ref<HTMLInputElement>) {
+function Input({ type, label, id, hasError, colSpan, helperText, ...props }: Props, ref: Ref<HTMLInputElement>) {
 
   return (
     <div className={`md:col-span-${colSpan}`}>
@@ -25,6 +26,7 @@ function Input({ type, label, id, hasError, colSpan, ...props }: Props, ref: Ref
           ref={ref}
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
         />
+        {helperText && <p className="text-gray-500 text-xs">{helperText}</p>}
         {hasError && <span className='text-red-500 text-xs'>Este campo es requerido</span>}
       </div>
     </div>

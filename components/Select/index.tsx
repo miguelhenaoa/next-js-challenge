@@ -10,9 +10,10 @@ interface Props {
   selectLabel?: string;
   selectValue?: string;
   options: any[];
+  helperText?: string;
 }
 
-function Select({ label, id, hasError, colSpan, selectLabel, selectValue, options, ...props }: Props, ref: LegacyRef<HTMLSelectElement>) {
+function Select({ label, id, hasError, colSpan, selectLabel, selectValue, options, helperText, ...props }: Props, ref: LegacyRef<HTMLSelectElement>) {
   return (
     <div className={`md:col-span-${colSpan}`}>
       <label htmlFor={id} className={`${styles.label} block text-sm font-medium leading-6 text-gray-900`}>
@@ -34,6 +35,7 @@ function Select({ label, id, hasError, colSpan, selectLabel, selectValue, option
             </option>
           ))}
         </select>
+        {helperText && <p className="text-gray-500 text-xs">{helperText}</p>}
         {hasError && <span className='text-red-500 text-xs'>Este campo es requerido</span>}
       </div>
     </div>

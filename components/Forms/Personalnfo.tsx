@@ -37,6 +37,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             selectLabel='name'
             selectValue='value'
             options={documentTypes}
+            helperText='Seleccione el tipo de documento que posee'
           />
           <Input
             {...register('dni', { required: true })}
@@ -45,6 +46,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             id='dni'
             hasError={errors.dni}
             colSpan={2}
+            helperText='Ingrese su número de documento sin puntos ni guiones'
           />
           <Input
             {...register("optionalIdentifier")}
@@ -53,6 +55,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             id='optional-identifier'
             hasError={errors.optionalIdentifier}
             colSpan={2}
+            helperText='Puede ser el número de pasaporte, carnet de extranjería, etc.'
           />
           <Input
             {...register("firstName", { required: true })}
@@ -93,6 +96,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             id='email'
             hasError={errors.email}
             colSpan={3}
+            helperText='Ingrese un correo electrónico válido (Ejemplo: yourmail@openword.uy)'
           />
           <Select
             {...register("callSign", { required: true })}
@@ -103,6 +107,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             selectLabel='name'
             selectValue='code'
             options={callSigns}
+            helperText='Seleccione el indicativo que posee'
           />
           <Input
             {...register("phone", { required: true })}
@@ -111,6 +116,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             id='phone-number'
             hasError={errors.phone}
             colSpan={2}
+            helperText='Ingrese un número de teléfono válido sin espacios, guiones o paréntesis'
           />
           <Input
             {...register("address", { required: true })}
@@ -119,6 +125,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             id='street-address'
             hasError={errors.address}
             colSpan={3}
+            helperText='Ingrese su dirección de residencia completa'
           />
           <Select
             {...register("city", { required: true })}
@@ -127,8 +134,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             hasError={errors.city}
             colSpan={2}
             options={cities}
+            helperText='Seleccione la ciudad donde reside'
           />
-
           <Input
             {...register("zipCode", { required: true })}
             label='ZIP / Código postal'
@@ -136,8 +143,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             id='postal-code'
             hasError={errors.zipCode}
             colSpan={2}
+            helperText='Ingrese su código postal, si no lo conoce, puede dejar este campo en blanco'
           />
-
           <Input
             {...register("workAddress", { required: true })}
             label='Dirección de trabajo'
@@ -145,6 +152,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             id='job-address'
             hasError={errors.workAddress}
             colSpan={3}
+            helperText='Ingrese su dirección de trabajo completa'
           />
         </div>
       </div>

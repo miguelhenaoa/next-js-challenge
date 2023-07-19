@@ -35,31 +35,34 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-4">
           <Select
             {...register("tipo_moneda", { required: true })}
-            label="Selecciona el tipo de moneda que deseas"
+            label="Tipo de moneda"
             id="tipo_moneda"
             hasError={errors.tipo_moneda}
             options={currencyTypes}
             colSpan={2}
             selectLabel='name'
             selectValue='value'
+            helperText='Selecciona el tipo de moneda que deseas para tu crédito'
           />
           <Input
             {...register("valor_credito_total", { required: true, min: 1 })}
-            label='¿Qué monto necesitas?'
+            label='Monto del crédito'
             type='number'
             id='valor_credito_total'
             hasError={errors.valor_credito_total}
             colSpan={2}
+            helperText='Ingresa el monto que necesitas para tu crédito'
           />
           <Select
             {...register("cuotas_credito", { required: true })}
-            label="¿Cada cuánto tiempo pagarás?"
+            label="Cuotas del crédito"
             id="cuotas_credito"
             hasError={errors.cuotas_credito}
             options={deadlines}
             selectLabel='name'
             selectValue='value'
             colSpan={2}
+            helperText='Selecciona cada cuanto tiempo deseas pagar tu crédito'
           />
           <Select
             {...register("duracion_credito", { required: true })}
@@ -70,6 +73,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
             selectLabel='name'
             selectValue='value'
             colSpan={2}
+            helperText='Selecciona el plazo en el que deseas pagar tu crédito'
           />
         </div>
       </div>

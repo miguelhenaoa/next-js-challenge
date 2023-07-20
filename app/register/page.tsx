@@ -23,7 +23,7 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [check, setSend] = useState(false);
   const router = useRouter();
-  const [formStep, setFormStep] = useState(2);
+  const [formStep, setFormStep] = useState(0);
   const nextFormStep = (data: any) => {
     setData((currentData: any) => ({ ...currentData, ...data }));
     setFormStep((currentStep) => currentStep + 1)

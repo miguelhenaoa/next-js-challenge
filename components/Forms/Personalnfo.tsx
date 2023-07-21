@@ -26,10 +26,10 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='shadow-lg p-10 rounded'>
-        <h2 className="text-base font-semibold leading-7 text-gray-900">Información Personal</h2>
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-rows md:grid-cols-6">
+        <h2 className='text-base font-semibold leading-7 text-gray-900'>Información Personal</h2>
+        <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-rows md:grid-cols-6'>
           <Select
-            {...register("typeDocument", { required: true })}
+            {...register('typeDocument', { required: true })}
             label='Tipo de documento'
             id='document-type'
             hasError={errors.typeDocument}
@@ -49,7 +49,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             helperText='Ingrese su número de documento sin puntos ni guiones'
           />
           <Input
-            {...register("optionalIdentifier")}
+            {...register('optionalIdentifier')}
             label='Identificador opcional'
             type='text'
             id='optional-identifier'
@@ -58,7 +58,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             helperText='Puede ser el número de pasaporte, carnet de extranjería, etc.'
           />
           <Input
-            {...register("firstName", { required: true })}
+            {...register('firstName', { required: true })}
             label='Primer nombre'
             type='text'
             id='first-name'
@@ -66,7 +66,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             className='col-span-3'
           />
           <Input
-            {...register("secondName", { required: true })}
+            {...register('secondName', { required: true })}
             label='Segundo nombre'
             type='text'
             id='second-name'
@@ -75,7 +75,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
 
           />
           <Input
-            {...register("firstLastName", { required: true })}
+            {...register('firstLastName', { required: true })}
             label='Primer apellido'
             type='text'
             id='first-last-name'
@@ -84,7 +84,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
 
           />
           <Input
-            {...register("secondLastName", { required: true })}
+            {...register('secondLastName', { required: true })}
             label='Segundo apellido'
             type='text'
             id='second-last-name'
@@ -93,7 +93,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
 
           />
           <Input
-            {...register("email", { required: true })}
+            {...register('email', { required: true })}
             label='Correo electrónico'
             type='email'
             id='email'
@@ -103,7 +103,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             helperText='Ingrese un correo electrónico válido (Ejemplo: yourmail@openword.uy)'
           />
           <Select
-            {...register("callSign", { required: true })}
+            {...register('callSign', { required: true })}
             label='Indicativo'
             id='call-sign'
             hasError={errors.callSign}
@@ -114,7 +114,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             helperText='Seleccione el indicativo que posee'
           />
           <Input
-            {...register("phone", { required: true })}
+            {...register('phone', { required: true })}
             label='Número de teléfono'
             type='tel'
             id='phone-number'
@@ -123,7 +123,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             helperText='Ingrese un número de teléfono válido sin espacios, guiones o paréntesis'
           />
           <Input
-            {...register("address", { required: true })}
+            {...register('address', { required: true })}
             label='Dirección'
             type='text'
             id='street-address'
@@ -133,7 +133,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             helperText='Ingrese su dirección de residencia completa'
           />
           <Select
-            {...register("city", { required: true })}
+            {...register('city', { required: true })}
             label='Ciudad'
             id='city'
             hasError={errors.city}
@@ -142,16 +142,16 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             helperText='Seleccione la ciudad donde reside'
           />
           <Input
-            {...register("zipCode", { required: true })}
+            {...register('zipCode', { required: true })}
             label='ZIP / Código postal'
             type='number'
             id='postal-code'
             hasError={errors.zipCode}
             className='col-span-2'
-            helperText='Ingrese su código postal, si no lo conoce, puede dejar este campo en blanco'
+            helperText='Ingrese su código postal, si no lo conoce, puede buscar este dato en Google'
           />
           <Input
-            {...register("workAddress", { required: true })}
+            {...register('workAddress', { required: true })}
             label='Dirección de trabajo'
             type='text'
             id='job-address'
@@ -162,8 +162,8 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
           />
         </div>
       </div>
-      <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button type="submit" className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">SIGUIENTE</button>
+      <div className='mt-6 flex items-center justify-end gap-x-6'>
+        <button type='submit' className='rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>SIGUIENTE</button>
       </div>
     </form >
   )

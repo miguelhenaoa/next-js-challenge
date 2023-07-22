@@ -3,6 +3,7 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import { Ref, forwardRef, useState } from 'react';
 import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
+import Image from 'next/image';
 import styles from '../Input/Input.module.css';
 
 
@@ -12,9 +13,10 @@ interface Props {
   id?: string;
   className: string;
   helperText?: string;
+  image?: string;
 }
 
-function InputFile({ label, id, hasError, className, helperText, ...props }: Props, ref: Ref<HTMLInputElement>) {
+function InputFile({ label, id, hasError, className, helperText, image, ...props }: Props, ref: Ref<HTMLInputElement>) {
   const [fileName, setFileName] = useState<string>('');
   const [hasTypeError, setHasTypeError] = useState<boolean>(false);
   const showFileName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +37,17 @@ function InputFile({ label, id, hasError, className, helperText, ...props }: Pro
       </label>
       <div className={`mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 ${(hasError || hasTypeError) && 'border-red-500'} `}>
         <div className="text-center">
-          <PhotoIcon className={`mx-auto h-12 w-12 text-gray-300 ${fileName && 'text-green-600'}`} aria-hidden="true" />
+          {image ?
+            <Image
+              className={`mx-auto h-12 w-12 text-gray-300 ${fileName && 'text-green-600'}`}
+              src={image}
+              alt='upload'
+              width={48}
+              height={48}
+            /> :
+            <PhotoIcon className={`mx-auto h-12 w-12 text-gray-300 ${fileName && 'text-green-600'}`} aria-hidden="true" />
+          }
+
           <div className="mt-4 flex text-sm leading-6 text-gray-600">
             <label
               htmlFor={id}
@@ -56,7 +68,7 @@ function InputFile({ label, id, hasError, className, helperText, ...props }: Pro
           </div>
           {
             fileName ?
-              <p className="text-xs leading-5 text-gray-600">Archivo seleccionado: {fileName}</p> :
+              <p className="text-xs leading-5 text-green-600">Archivo seleccionado: {fileName}</p> :
               <p className="text-xs leading-5 text-gray-600">Formatos permitidos: .jpg, .png</p>
           }
         </div>

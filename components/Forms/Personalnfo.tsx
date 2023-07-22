@@ -66,7 +66,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
             className='col-span-3'
           />
           <Input
-            {...register('secondName', { required: true })}
+            {...register('secondName')}
             label='Segundo nombre'
             type='text'
             id='second-name'

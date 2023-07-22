@@ -32,6 +32,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
             id='cover-photo-1'
             className='col-span-3'
             hasError={errors.frontSideDNI}
+            image='/images/id-card-front-side.svg'
           />
           <InputFile
             {...register("backSideDNI", { required: true })}
@@ -39,6 +40,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
             id='cover-photo-2'
             className='col-span-3'
             hasError={errors.backSideDNI}
+            image='/images/id-card-back-side.svg'
           />
           <InputFile
             {...register("salaryReceipts", { required: true })}

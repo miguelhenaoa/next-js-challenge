@@ -84,7 +84,7 @@ export default function PersonalInfo({ nextFormStep, formData }: PersonalInfoPro
 
           />
           <Input
-            {...register('secondLastName', { required: true })}
+            {...register('secondLastName')}
             label='Segundo apellido'
             type='text'
             id='second-last-name'

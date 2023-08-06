@@ -1,13 +1,18 @@
 import api from '../config/api';
-import { CreditApplicationRequestPayload } from '../utils/interfaces/credit-application';
+import { CreditApplicationPayload } from '../utils/interfaces/credit-application';
 
 const URL = '/open/form-tiempos/';
+const URL_DEV = '/applications/user'; 
 
 export const application = (
-  payload: CreditApplicationRequestPayload
+  payload: CreditApplicationPayload
 ): Promise<any> => {
   const formData = build(payload);
   return api.post(URL, formData);
+};
+
+export const getApplicationsByClient = (dni: string): Promise<any> => {
+  return api.get(`${URL_DEV}/${dni}`);
 };
 
 const build = (obj: any) => {

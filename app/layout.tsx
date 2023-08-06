@@ -17,7 +17,7 @@ const metadata = {
 const links = [
   { label: 'Inicio', route: '/' },
   { label: 'Sobre nosotros', route: '/about' },
-  // { label: 'Contacto', route: '/contact' },
+  { label: 'Estado de cuenta', route: '/account-status' },
 ];
 
 export default function RootLayout({

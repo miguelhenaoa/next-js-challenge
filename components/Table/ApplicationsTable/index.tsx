@@ -19,7 +19,7 @@ function ApplicationsTable({ data }: Props) {
 
   return (
     <>
-      <h4 className='text-xl'>Solicitudes</h4>
+      <h4 className='text-xl'>Solicitud</h4>
       <Table aria-label="Example static collection table">
         <TableHeader>
           {columns.map(({ label }, index) => (

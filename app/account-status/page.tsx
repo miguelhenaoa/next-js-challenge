@@ -5,9 +5,11 @@ import Lottie from 'lottie-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import ApplicationsTable from '../../components/Table/ApplicationsTable';
+import CreditsTable from '../../components/Table/CreditsTable';
 import emptyAnimation from '../../public/animations/empty.json';
 import searchAnimation from '../../public/animations/search.json';
 import { getApplicationsByClient } from '../../services/CreditApplicationService';
+import { getCreditsByClient } from '../../services/CreditService';
 
 function AccountStatusPage() {
   const router = useRouter();
@@ -15,6 +17,7 @@ function AccountStatusPage() {
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(true);
   const [hasApplications, setHasApplications] = useState(false);
+  const [hasCredits, setHasCredits] = useState(false);
   const [applications, setApplications] = useState([]);
 
   const handleDniChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +35,9 @@ function AccountStatusPage() {
     getApplicationsByClient(dni).then((res) => {
       setApplications(res);
       setHasApplications(res.length > 0);
-      setLoading(false);
+      const application = res[0];
+      const isApproved = application.preapobado_form_tiempos === '1';
+      isApproved ? getCreditInfo(dni) : setLoading(false);
     }, (err) => {
       if (err.status === 404) {
         setHasApplications(false);
@@ -41,28 +46,21 @@ function AccountStatusPage() {
     });
   };
 
-  const data = [
-    {
-      name: 'Tony Reichert',
-      role: 'CEO',
-      status: 'Active'
-    },
-    {
-      name: 'Zoey Lang',
-      role: 'Technical Lead',
-      status: 'Paused'
-    },
-    {
-      name: 'Jane Fisher',
-      role: 'Senior Developer',
-      status: 'Active'
-    },
-    {
-      name: 'William Howard',
-      role: 'Community Manager',
-      status: 'Vacation'
-    }
-  ];
+  const getCreditInfo = (dni: string) => {
+    console.log('getCreditInfo');
+    
+    getCreditsByClient(dni).then((res) => {
+      console.log(res);
+      setHasCredits(res.length > 0);
+      setLoading(false);
+    }, (err) => {
+      console.log(err);
+      if (err.status === 404) {
+        setHasCredits(false);
+      }
+      setLoading(false);
+    });
+  }
 
   return (
     <NextUIProvider>
@@ -120,6 +118,7 @@ function AccountStatusPage() {
         {hasApplications && !showForm && !loading &&
           <>
             <ApplicationsTable data={applications}></ApplicationsTable>
+            {hasCredits && <CreditsTable data={applications}></CreditsTable>}
           </>
         }
       </section>

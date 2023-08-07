@@ -8,3 +8,14 @@ export const creditDuration = [
   { name: '75 Días - 2 meses y medio', value: 7 },
   { name: '90 Días - 3 meses', value: 8 }
 ];
+
+export const durationText: { [key: string]: string} = {
+  1: '1 día',
+  2: '7 días - 1 Semana',
+  3: '15 días - 2 Semanas',
+  4: '30 Días - 1 mes',
+  5: '45 Días - 1 mes y medio',
+  6: '60 Días - 2 meses',
+  7: '75 Días - 2 meses y medio',
+  8: '90 Días - 3 meses',
+};

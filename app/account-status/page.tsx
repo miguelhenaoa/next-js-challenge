@@ -1,13 +1,13 @@
 
 'use client';
+import { NextUIProvider } from '@nextui-org/react';
 import Lottie from 'lottie-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import ApplicationsTable from '../../components/Table/ApplicationsTable';
 import emptyAnimation from '../../public/animations/empty.json';
 import searchAnimation from '../../public/animations/search.json';
 import { getApplicationsByClient } from '../../services/CreditApplicationService';
-import { NextUIProvider } from '@nextui-org/react';
-import TableCustom from '../../components/TableCustom';
 
 function AccountStatusPage() {
   const router = useRouter();
@@ -64,8 +64,6 @@ function AccountStatusPage() {
     }
   ];
 
-  const columns = ['NAME', 'ROLE', 'STATUS']
-
   return (
     <NextUIProvider>
       <section className='grid p-10 text-center gap-y-10'>
@@ -120,7 +118,9 @@ function AccountStatusPage() {
           </>
         }
         {hasApplications && !showForm && !loading &&
-          <TableCustom columns={columns} data={data}></TableCustom>
+          <>
+            <ApplicationsTable data={applications}></ApplicationsTable>
+          </>
         }
       </section>
     </NextUIProvider>

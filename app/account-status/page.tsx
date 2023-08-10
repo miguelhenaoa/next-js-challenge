@@ -48,7 +48,7 @@ function AccountStatusPage() {
 
   const getCreditInfo = (dni: string) => {
     console.log('getCreditInfo');
-    
+
     getCreditsByClient(dni).then((res) => {
       console.log(res);
       setHasCredits(res.length > 0);
@@ -119,6 +119,12 @@ function AccountStatusPage() {
           <>
             <ApplicationsTable data={applications}></ApplicationsTable>
             {hasCredits && <CreditsTable data={applications}></CreditsTable>}
+            <button
+              className='w-50 h-12 text-white bg-blue-600 rounded-lg hover:bg-blue-700'
+              onClick={() => router.push('/')}
+            >
+              Volver a la pagina de inicio
+            </button>
           </>
         }
       </section>

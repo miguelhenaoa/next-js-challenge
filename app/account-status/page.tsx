@@ -47,14 +47,10 @@ function AccountStatusPage() {
   };
 
   const getCreditInfo = (dni: string) => {
-    console.log('getCreditInfo');
-
     getCreditsByClient(dni).then((res) => {
-      console.log(res);
       setHasCredits(res.length > 0);
       setLoading(false);
     }, (err) => {
-      console.log(err);
       if (err.status === 404) {
         setHasCredits(false);
       }

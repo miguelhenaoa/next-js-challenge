@@ -1,5 +1,5 @@
-// const baseUrl = 'http://127.0.0.1:8000';
-const baseUrl = 'https://apimocha.com/open-word-dev';
+const baseUrl = 'http://127.0.0.1:8000';
+// const baseUrl = 'https://apimocha.com/open-word-dev';
 
 const api = {
   post: (url: string, data: any) =>

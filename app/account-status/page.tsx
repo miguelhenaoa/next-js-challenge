@@ -10,15 +10,20 @@ import emptyAnimation from '../../public/animations/empty.json';
 import searchAnimation from '../../public/animations/search.json';
 import { getApplicationsByClient } from '../../services/CreditApplicationService';
 import { getCreditsByClient } from '../../services/CreditService';
+import PayPeriods from '../../components/Table/PayPeriods';
+import { getPayPeriodsByCreditId } from '../../services/PayPeriodService';
 
 function AccountStatusPage() {
   const router = useRouter();
   const [dni, setDni] = useState('');
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(true);
-  const [hasApplications, setHasApplications] = useState(false);
-  const [hasCredits, setHasCredits] = useState(false);
   const [applications, setApplications] = useState([]);
+  const [hasApplications, setHasApplications] = useState(false);
+  const [credits, setCredits] = useState([]);
+  const [hasCredits, setHasCredits] = useState(false);
+  const [payPeriods, setPayPeriods] = useState([]);
+  const [hasPayPeriods, setHasPayPeriods] = useState(false);
 
   const handleDniChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDni(e.target.value);
@@ -48,11 +53,26 @@ function AccountStatusPage() {
 
   const getCreditInfo = (dni: string) => {
     getCreditsByClient(dni).then((res) => {
+      setCredits(res);
       setHasCredits(res.length > 0);
-      setLoading(false);
+      getPayPeriodsInfo(res[0].id);
     }, (err) => {
       if (err.status === 404) {
         setHasCredits(false);
+      }
+      setLoading(false);
+    });
+  }
+
+  const getPayPeriodsInfo = (creditId: number) => {
+    getPayPeriodsByCreditId(creditId).then((res) => {
+      console.log(res);
+      setPayPeriods(res);
+      setHasPayPeriods(res.length > 0);
+      setLoading(false);
+    }, (err) => {
+      if (err.status === 404) {
+        setHasPayPeriods(false);
       }
       setLoading(false);
     });
@@ -114,7 +134,8 @@ function AccountStatusPage() {
         {hasApplications && !showForm && !loading &&
           <>
             <ApplicationsTable data={applications}></ApplicationsTable>
-            {hasCredits && <CreditsTable data={applications}></CreditsTable>}
+            {hasCredits && <CreditsTable data={credits}></CreditsTable>}
+            <PayPeriods data={[]} />
             <button
               className='w-50 h-12 text-white bg-blue-600 rounded-lg hover:bg-blue-700'
               onClick={() => router.push('/')}

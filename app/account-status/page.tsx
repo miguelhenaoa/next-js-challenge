@@ -135,7 +135,7 @@ function AccountStatusPage() {
           <>
             <ApplicationsTable data={applications}></ApplicationsTable>
             {hasCredits && <CreditsTable data={credits}></CreditsTable>}
-            <PayPeriods data={[]} />
+            {hasPayPeriods && <PayPeriods data={payPeriods} />}
             <button
               className='w-50 h-12 text-white bg-blue-600 rounded-lg hover:bg-blue-700'
               onClick={() => router.push('/')}

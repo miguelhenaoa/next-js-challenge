@@ -19,15 +19,15 @@ function PayPeriodCard({ period }: Props) {
   };
 
   return (
-    <section className={`bg-white w-96 shadow-md rounded-lg p-10  ${statusBg[pago_efectuado]}`}>
+    <section className={`bg-white w-72 sm:w-96 shadow-md rounded-lg p-10  ${statusBg[pago_efectuado]}`}>
       <p className='text-3xl'>{valor_cobro} UYU</p>
       <small className='text-gray-500'>#{numero_periodo}</small>
       <div className='mt-5 grid grid-cols-2 text-left gap-y-1'>
-        <article className='col-span-1 flex flex-col'>
+        <article className='col-span-2 sm:col-span-1 flex flex-col'>
           <span>{fecha_inicio}</span>
           <span className='text-xs text-gray-500'>Fecha de inicio</span>
         </article>
-        <article className='col-span-1 flex flex-col'>
+        <article className='col-span-2 sm:col-span-1 flex flex-col'>
           <span>{fecha_fin}</span>
           <span className='text-xs text-gray-500'>Fecha de fin</span>
         </article>

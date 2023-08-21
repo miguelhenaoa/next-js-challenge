@@ -11,10 +11,10 @@ function ApplicationsTable({ data }: Props) {
 
   return (
     <div className="bg-white shadow-md">
-      <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-2 py-12 sm:px-3 sm:py-16 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-8 sm:gap-y-16 px-2 py-12 sm:px-3 sm:py-16 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
         <div>
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Solicitud</h2>
-          <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 sm:gap-y-8 lg:gap-x-8">
+          <dl className="mt-8 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 sm:gap-y-8 sm:mt-16 lg:gap-x-8">
             <div className="border-t border-gray-200 pt-2">
               <dt className="font-medium text-gray-900">Fecha de solicitud</dt>
               <dd className="mt-2 text-sm text-gray-500">{formatDate(application['created_at'])}</dd>
@@ -37,7 +37,7 @@ function ApplicationsTable({ data }: Props) {
             </div>
           </dl>
         </div>
-        <div className="bg-yellow-100 shadow-md py-28 grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8">
+        <div className="bg-yellow-100 shadow-md py-7 grid grid-cols-1 gap-4 sm:py-14 md:py-28 sm:gap-6 lg:gap-8">
           <h3 className="text-xl tracking-tight text-gray-500 sm:text-xl">Monto solicitado</h3>
           <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">{application['valor_credito_total']} UYU</h3>
         </div>

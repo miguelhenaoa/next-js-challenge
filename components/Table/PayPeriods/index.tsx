@@ -9,7 +9,7 @@ function PayPeriods({ data }: Props) {
     <section className='bg-white shadow-md'>
       <div className="mx-auto max-w-2xl items-center gap-x-8 gap-y-16 px-2 py-12 sm:px-3 sm:py-16 lg:max-w-7xl lg:px-8">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Periodos de pago</h2>
-        <div className='flex gap-5 items-center justify-center mb-10'>
+        <div className='flex flex-wrap gap-y-1 gap-5 items-center justify-center mb-10'>
           <div>
             <span className='inline-block w-3 h-3 mr-1 rounded-full bg-green-500'></span>
             <span>Pagado</span>

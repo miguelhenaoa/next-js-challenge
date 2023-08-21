@@ -30,7 +30,7 @@ export default function LoanInfo({ nextFormStep, prevFormStep, formData }: LoanI
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='shadow-lg p-10 rounded'>
         <h2 className="text-base font-semibold leading-7 text-gray-900">Información del Préstamo</h2>
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div className="mt-10  gap-x-6 gap-y-8 grid grid-cols-1 sm:grid-cols-6">
           <Input
             {...register("valor_credito_total", { required: true, min: 1 })}
             label='Monto del crédito'

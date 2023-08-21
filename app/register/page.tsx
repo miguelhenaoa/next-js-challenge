@@ -96,7 +96,7 @@ export default function RegisterPage() {
 
   return (
     !loading && !check ?
-      <FormCard className='py-4 px-1 my-4 mx-4 md:px-10 lg:px-20 lg:mx-40 bg-white' currentStep={formStep} prevFormStep={prevFormStep}>
+      <FormCard className='py-4 px-1 my-4 mx-4 sm:px-10 lg:px-20 lg:mx-40 bg-white' currentStep={formStep} prevFormStep={prevFormStep}>
         {formStep === 0 && <PersonalInfo formData={data} nextFormStep={nextFormStep} />}
         {formStep === 1 && <LoanInfo formData={data} nextFormStep={nextFormStep} prevFormStep={prevFormStep} />}
         {formStep === 2 && <Docs formData={data} nextFormStep={nextFormStep} prevFormStep={prevFormStep} sendForm={onSubmit} />}

@@ -25,7 +25,7 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='shadow-lg p-10 rounded'>
         <h2 className="text-base font-semibold leading-7 text-gray-900">Soportes documentales</h2>
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div className="mt-10 gap-x-6 gap-y-8 grid grid-cols-1 sm:grid-cols-6">
           <InputFile
             {...register("frontSideDNI", { required: true })}
             label='Documento de identificación - Anverso'
@@ -46,21 +46,21 @@ export default function Docs({ sendForm, prevFormStep, formData }: DocsProps) {
             {...register("salaryReceipts", { required: true })}
             label='Salario - Soporte'
             id='cover-photo-3'
-            className='col-span-2 md:col-span-3'
+            className='col-span-3 sm:col-span-3'
             hasError={errors.salaryReceipts}
           />
           <InputFile
             {...register("lastSalaryReceipt", { required: true })}
             label='Salario - Soporte último mes'
             id='cover-photo-4'
-            className='col-span-2 md:col-span-3'
+            className='col-span-3 sm:col-span-3'
             hasError={errors.lastSalaryReceipt}
           />
           <InputFile
             {...register("publicServicesReceipts", { required: true })}
             label='Servicios públicos - Soporte'
             id='cover-photo-5'
-            className='col-span-2 sm:col-span-full'
+            className='col-span-3 sm:col-span-full'
             hasError={errors.publicServicesReceipts}
           />
         </div>

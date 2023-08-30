@@ -8,6 +8,7 @@ import ApplicationsTable from '../../components/Table/ApplicationsTable';
 import CreditsTable from '../../components/Table/CreditsTable';
 import emptyAnimation from '../../public/animations/empty.json';
 import searchAnimation from '../../public/animations/search.json';
+import creditAnimation from '../../public/animations/credit.json';
 import { getApplicationsByClient } from '../../services/CreditApplicationService';
 import { getCreditsByClient } from '../../services/CreditService';
 import PayPeriods from '../../components/Table/PayPeriods';
@@ -88,29 +89,43 @@ function AccountStatusPage() {
             <span>Consultando...</span>
           </div>
         }
-        {showForm && <section>
-          <p className='text-lg'>
-            Ingresa tu numero de documento para consultar tu estado de cuenta
-          </p>
-          <form
-            className='flex flex-col gap-5 items-center'
-            onSubmit={handleSubmit}
-          >
-            <input
-              className='h-12 placeholder-gray-500 border rounded-lg focus:shadow-outline w-2/3'
-              type='text'
-              placeholder='Ingresa tu numero de documento'
-              value={dni}
-              onChange={handleDniChange}
-            />
-            <button
-              className='h-12 text-white bg-blue-600 rounded-lg hover:bg-blue-700 w-40'
-              type='submit'
-            >
-              Consultar
-            </button>
-          </form>
-        </section>}
+        {showForm &&
+          <section className='md:flex md:gap-5'>
+            <div className='w-auto p-5 bg-white shadow-lg rounded flex flex-col gap-y-20'>
+              <article>
+                <h3 className='text-2xl'>
+                  Bienvenido usuario <span className='text-[#e7ae0a]'>OpenWord</span>
+                </h3>
+                <p className='text-gray-500'>
+                  En la sección de estado de cuenta podrás consultar el estado de tus créditos y pagos pendientes
+                </p>
+                <p className='text-gray-500'>
+                  En un solo lugar encontrarás la información resumida y de fácil lectura, solo ingresa tu número de documento y listo
+                </p>
+              </article>
+              <form
+                className='flex flex-col gap-5 items-center'
+                onSubmit={handleSubmit}
+              >
+                <input
+                  className='h-12 placeholder-gray-500 border rounded-lg focus:shadow-outline md:w-2/3'
+                  type='text'
+                  placeholder='Ingresa tu numero de documento'
+                  value={dni}
+                  onChange={handleDniChange}
+                />
+                <button
+                  className='h-12 text-white bg-blue-600 rounded-lg hover:bg-blue-700 w-40'
+                  type='submit'
+                >
+                  Consultar
+                </button>
+              </form>
+            </div>
+            <div className='hidden md:block'>
+              <Lottie className='max-h-96' animationData={creditAnimation} />
+            </div>
+          </section>}
         {!hasApplications && !showForm && !loading &&
           <>
             <h3 className='text-2xl'>No tenemos nada para mostrarte</h3>

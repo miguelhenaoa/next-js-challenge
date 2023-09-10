@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Toaster } from 'react-hot-toast';
 import { BsFacebook, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import '../styles/globals.css';
+import { useState } from 'react';
 
 const inter = Lexend({ subsets: ['latin'] })
 
@@ -24,6 +25,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
     <html lang="en">
       <head>
@@ -41,10 +44,10 @@ export default function RootLayout({
               width={100}
               height={100}
             />
-            <h4 className='text-[#e7ae0a]'>OpenWord</h4>
+            <h4 className='text-[#e7ae0a] hidden md:block'>OpenWord</h4>
           </Link>
           <nav>
-            <ul className='navigation text-white'>
+            <ul className='hidden md:flex gap-5 text-white'>
               {links.map(({ label, route }) => (
                 <li className='link' key={route}>
                   <Link href={route}>
@@ -53,7 +56,78 @@ export default function RootLayout({
                 </li>
               ))}
             </ul>
+            <section className="flex md:hidden">
+              <div className="space-y-2" onClick={() => setIsNavOpen((prev) => !prev)}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="white"
+                  viewBox="0 0 24 24"
+                  stroke="white"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </div>
+              <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+                <div
+                  className="w-inherit absolute top-0 right-0 px-8 py-8 flex items-center justify-between cursor-pointer"
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  <Image
+                    src='/images/logo.png'
+                    alt='OpenWod Logo'
+                    width={100}
+                    height={100}
+                  />
+                  <svg
+                    className="h-8 w-8 text-gray-600"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </div>
+                <ul className="flex flex-col items-center justify-between min-h-[250px] text-white">
+                  {links.map(({ label, route }) => (
+                    <li className='link' key={route}>
+                      <Link href={route} onClick={() => setIsNavOpen(false)}>
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
           </nav>
+          <style>{`
+            .hideMenuNav {
+              display: none;
+            }
+            .showMenuNav {
+              display: block;
+              position: absolute;
+              width: 100%;
+              height: 100vh;
+              top: 0;
+              left: 0;
+              background: #1f1f1f;
+              z-index: 10;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-evenly;
+              align-items: center;
+            }
+          `}</style>
         </header>
         <section className='content'>
           <Toaster />

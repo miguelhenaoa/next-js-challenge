@@ -3,7 +3,7 @@
 import { NextUIProvider } from '@nextui-org/react';
 import Lottie from 'lottie-react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import ApplicationsTable from '../../components/Table/ApplicationsTable';
 import CreditsTable from '../../components/Table/CreditsTable';
 import emptyAnimation from '../../public/animations/empty.json';
@@ -13,8 +13,10 @@ import { getApplicationsByClient } from '../../services/CreditApplicationService
 import { getCreditsByClient } from '../../services/CreditService';
 import PayPeriods from '../../components/Table/PayPeriods';
 import { getPayPeriodsByCreditId } from '../../services/PayPeriodService';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 function AccountStatusPage() {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const router = useRouter();
   const [dni, setDni] = useState('');
   const [loading, setLoading] = useState(false);
@@ -31,6 +33,13 @@ function AccountStatusPage() {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (!recaptchaRef.current) {
+      return;
+    }
+    const recaptchaValue = recaptchaRef.current.getValue();
+    if (!recaptchaValue) {
+      return;
+    }
     e.preventDefault();
     setShowForm(false);
     setLoading(true);
@@ -113,6 +122,10 @@ function AccountStatusPage() {
                   placeholder='Ingresa tu numero de documento'
                   value={dni}
                   onChange={handleDniChange}
+                />
+                <ReCAPTCHA
+                  sitekey="6Le75hIoAAAAAKXtlWaQY1o3XfXXJHqTYPgbFT9Y"
+                  ref={recaptchaRef}
                 />
                 <button
                   className='h-12 text-white bg-blue-600 rounded-lg hover:bg-blue-700 w-40'

@@ -21,10 +21,10 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [check, setSend] = useState(false);
   const router = useRouter();
-  const [formStep, setFormStep] = useState(2);
+  const [formStep, setFormStep] = useState(0);
   const nextFormStep = (data: any) => {
     setData((currentData: any) => ({ ...currentData, ...data }));
-    setFormStep((currentStep) => currentStep + 1)
+    setFormStep((currentStep) => currentStep + 1);
   };
   const prevFormStep = () => setFormStep((currentStep) => currentStep - 1);
 
@@ -40,47 +40,39 @@ export default function RegisterPage() {
         updatedAt: new Date()
       });
 
-      create(payload).then((response) => {
-        if (response.status === STATUS_CODE.CREATED) {
-          const creditApplication: CreditApplicationPayload = {
-            tipo_moneda,
-            valor_credito_total,
-            tasa_interes: 0,
-            cuotas_credito,
-            duracion_credito,
-            preapobado_form_tiempos: 3,
-            estado_externo: 3,
-            fecha_aprobacion: new Date().toISOString(),
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString(),
-            cedula_cliente: client.dni,
-          };
-          application(creditApplication).then((response) => {
-            if (response.status === STATUS_CODE.CREATED) {
-              setLoading(false);
-              setSend(true);
-              toast.success(messages[response.status]);
-              setTimeout(() => {
-                router.push('/');
-              }, 3000);
-            } else {
-              toast.error(messages[response.status]);
-              setLoading(false);
-            }
-          }, (error) => {
-            toast.error(messages[error.status]);
-            setLoading(false);
-          });
-        } else {
-          toast.error(messages[response.status]);
+      create(payload).then(() => {
+        const creditApplication: CreditApplicationPayload = {
+          tipo_moneda,
+          valor_credito_total,
+          tasa_interes: 0,
+          cuotas_credito,
+          duracion_credito,
+          preapobado_form_tiempos: 3,
+          estado_externo: 3,
+          fecha_aprobacion: new Date().toISOString(),
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+          cedula_cliente: client.dni,
+        };
+        application(creditApplication).then((response) => {
           setLoading(false);
-        }
+          setSend(true);
+          toast.success(messages[response.status]);
+          setTimeout(() => {
+            router.push('/');
+          }, 3000);
+        }, (error) => {
+          toast.error(messages[error.status]);
+          setLoading(false);
+        });
       }, (error) => {
+        console.error(error);
         toast.error(messages[error.status]);
         setLoading(false);
         setSend(false);
       });
     } catch (error: any) {
+      console.error(error);
       toast.error(messages[error.status]);
       setLoading(false);
     }
